@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel-"stylesheet" href="./css/main.css">
+</head>
+<body>
+    <script id="vertexShader1" type="vertex">
+        uniform float time;
+
+        void main(){
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(cos(time) * position, 1.0);
+        }
+    </script>
+    <script id="fragmentShader1" type="fragment">
+        uniform float time;
+
+        void main(){
+            gl_FragColor = vec4(sin(time),0.0,1.0,1.0);
+        }
+    </script>
+    <script id="vertexShader2" type="vertex">
+        uniform float time;
+
+        void main(){
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(sin(time*4.0) * position, 1.0);
+        }
+    </script>
+    <script id="fragmentShader2" type="fragment">
+        uniform float time;
+        uniform vec2 resolution;
+
+        void main(){
+            gl_FragColor = vec4(tan(time),cos(time * 2.0),1.0,1.0);
+        }
+    </script>
+    <script src="./js/script.js" type = module></script>
+</body>
+<body>
+    
+</body>
+</html>
